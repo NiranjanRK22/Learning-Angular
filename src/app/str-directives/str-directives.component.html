@@ -1,0 +1,31 @@
+<!-- <p>str-directives works!</p> -->
+
+<!-- <h2>Using ngif</h2>
+<h3 *ngIf="username == 'niranjan'">Welcome {{ username }}</h3>
+
+<h3 *ngIf="username != 'niranjan'; else temp1">Hello {{ username }}</h3>
+<ng-template #temp1>
+  <h3>Great job {{ username }}</h3>
+</ng-template>
+<h3 *ngIf="username == 'niranjan'; then temp2; else temp3"></h3>
+<ng-template #temp2>
+  <h3>Good luck {{ username }}</h3>
+</ng-template>
+<ng-template #temp3>
+  <h3>Better luck next time {{ username }}</h3>
+</ng-template>
+
+<input [(ngModel)]="empname" />
+<h3 *ngIf="empname == 'john'; else check1">Welcome {{ empname }}</h3>
+<ng-template #check1>
+  <h3>Wrong error {{ empname }}</h3>
+</ng-template> -->
+
+<h2>Using ngFor</h2>
+<ul *ngFor = 'let fruit of fruits'>
+    <!-- <li *ngIf = "fruit.contains('berry')" then color1;></li>
+    <ng-template #color1>
+        <h3 [style.color]='listcolor'>>Good luck {{ username }}</h3>
+      </ng-template> -->
+    <li [style.list-style-type]='listStyle'>{{fruit.toUpperCase()}}</li>
+</ul>

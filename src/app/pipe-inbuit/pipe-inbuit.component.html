@@ -1,0 +1,33 @@
+<h2>Using inbuilt pipe</h2>
+{{ employee.name | uppercase }}
+{{ employee.salary | currency: "Rs." }}
+{{ employee.city | lowercase }}
+
+<h3>Inbuilt pipes</h3>
+{{ employee1.name | uppercase }}<br />
+{{ employee1.city | titlecase }}<br />
+{{ employee1.salary | currency }}<br />
+{{ employee1.birthday | date: "shortDate" }}
+<br />
+{{ employee1.birthday | date: "mediumDate" }}<br />
+{{ employee1.birthday | date: "fullDate" }}
+<br />
+{{ employee1.birthday | date: "short" }}<br />
+{{ employee1.birthday | date: "shortTime" }}<br />
+{{ employee1.bonus | number: "1.0-2" }}<br />
+{{ employee1 | json }}
+
+<ul *ngFor="let course of courses">
+  <li
+    [ngClass]="{
+      ocolor: course.type == 'backend',
+      bcolor: course.type == 'frontend'
+    }"
+  >
+    <p>Name: {{ course.courseName | uppercase }}</p>
+    <p>Type: {{ course.type | lowercase }}</p>
+    <p>Medium: {{ course.medium }}</p>
+    <p>Cost: {{ course.cost | currency }}</p>
+    <p *ngIf="course.trainer">Trainer: {{ course.trainer }}</p>
+  </li>
+</ul>

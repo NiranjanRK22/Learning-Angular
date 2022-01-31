@@ -1,0 +1,52 @@
+<form #registerForm=ngForm (ngSubmit)="onRegister(registerForm)">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" #name="ngModel" id="name" [(ngModel)]="user.name"/>
+    </div><br>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="user.password"/>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"/>
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <input type="radio" value="male" id="gender1" name="gender" #gender="ngModel" [(ngModel)]="user.gender"/>Male
+        <input type="radio" value="female" id="gender2" name="gender" #gender="ngModel" [(ngModel)]="user.gender"/>Female
+    </div>
+    <div ngModelGroup="address">
+       <div>
+           <label for="state">State</label>
+           <input type="text" name="state" id="state" #state="ngModel" [(ngModel)]="user.address.state"/>
+       </div>
+       <div>
+          <label for="city">City</label>
+          <select name="city" #city="ngModel" [(ngModel)]="user.address.city">
+              <option [ngValue]="city" *ngFor="let city of cities">{{city}}</option>
+          </select>
+       </div>
+       <div>
+          <label for="zipcode">Zip Code</label>
+          <input type="text" name="zipcode" id="zipcode" #zipcode="ngModel" [(ngModel)]="user.address.zipcode"/>
+       </div>
+    </div>
+    <input type="submit" value="Register">
+    <!-- <button (click)="onReset()">Reset</button> -->
+    <button (click)="onResetForm(registerForm)">Reset Form</button>
+</form>
+
+Valid{{registerForm.valid}}<br>
+Touched{{registerForm.touched}}<br>
+UnTouched{{registerForm.untouched}}<br>
+Pristine {{registerForm.pristine}}<br>
+Dirty{{registerForm.dirty}}<br>
+Result{{registerForm.value|json}}<br>
+Submitted{{registerForm.submitted}}<br>
+
+
+<p>{{name.value}}</p>
+<p>{{email.value}}</p>
+<p>{{gender.value}}</p>
+<p>{{city.value}}</p>

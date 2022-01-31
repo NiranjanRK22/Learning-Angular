@@ -1,0 +1,32 @@
+<!-- interpolation -->
+Welcome{{username}}<br>
+Hello{{employee.name}} from {{employee.city}}
+<h2>Property Binding</h2>
+<img [src]="mylogo" height="100px" width="100px"/>
+<img src="{{mylogo}}" height="100px" width="100px"/>
+<img bind-src='mylogo' height="100px" width="100px"/><br>
+<button [disabled]='isDisabled'>View More</button>
+
+<h2>Event binding</h2>
+{{message}}<br>
+<button (click) = showMessage()>View More</button><br>
+
+<button (click) = "changeMessage('Hello')">Change Message</button><br>
+
+<h2>Class binding</h2>
+<h3 [class]="myclass">This is Class binding</h3>
+<h3 [class.footer]="applyClass">Using a boolean</h3>
+<h3 [class]="applyClass ? myclass : newClass">Ternary</h3>
+
+<h2>Style binding</h2>
+<h3 [style.color] = "headerColor">Using style binding</h3>
+<h3 [style.textTransform] = "headerText">Using style binding</h3>
+<h3 [style.color] = "applyStyle ? headerColor : footerColor">Using style binding</h3>
+
+<h2>Twoway data binding</h2>
+<input [(ngModel)] = "studentName">{{studentName}}
+
+<h2>Template Reference Variable</h2>
+<input type="text" #uname >
+<button (click) = greet(uname.value)>Greet</button>
+{{greetMessage}}

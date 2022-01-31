@@ -1,0 +1,17 @@
+
+<div [ngStyle]="{'background-color': 'orange'}" #div>
+    <h3 #header>Parent component</h3>
+    <app-view-child [pmessage]="parentMessage"></app-view-child>
+    <h3>Child Message</h3>
+    <h3>{{child}}</h3>
+    <app-view-children parMessage="{{parentMessage}}"></app-view-children>
+    <app-view-children parMessage="{{parentMessage | uppercase}}"></app-view-children>
+    <app-view-children parMessage="{{parentMessage | lowercase}}"></app-view-children>
+    <h3>Parent Done</h3>
+    <h3>Children Message</h3>
+    <ul *ngFor="let child of childArray">
+        <li>{{ child.child1 }}</li>
+        <li>{{ child.child2 }}</li>
+        <li>{{ child.parMessage }}</li>
+    </ul>
+</div>

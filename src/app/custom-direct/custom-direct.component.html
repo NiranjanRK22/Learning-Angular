@@ -1,0 +1,17 @@
+<h1>Using custom attribute directive</h1>
+<h2 appBasicHighlight>This is a basic highlighter</h2>
+<h2 appRenderHighlight>This is a renderer directive</h2>
+<h2 appHostHighlight>using Host Listener to handle events</h2>
+<h2 appHostbindHighlight [defaultColor]="'green'" [highlightColor]="highColor" [textStyle]="'uppercase'" [bgcolor]="'pink'">To provide dynamic values for styling</h2>
+<h1>Using custom structural directive</h1>
+<input type="text" [(ngModel)]='username'/>
+<h3 *ngIf="username=='niranjan' else temp1">Welcome {{ username }}</h3>
+<ng-template #temp1>
+    Wrong user...
+</ng-template>
+<h3 *appNotif="username=='niranjan'">
+    Hello {{username}}
+</h3>
+<h3 *appNumberloop="5">
+    Welcome
+</h3>

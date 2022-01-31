@@ -1,0 +1,11 @@
+<p>pipe-async works!</p>
+<ul *ngFor="let course of courseObservable | async">
+    <li>
+      <p>Name: {{ course.courseName | uppercase }}</p>
+      <p>Type: {{ course.type | lowercase }}</p>
+      <p>Medium: {{ course.medium }}</p>
+      <p>Cost: {{ course.cost | currency }}</p>
+      <p *ngIf="course.trainer">Trainer: {{ course.trainer }}</p>
+    </li>
+</ul>
+  

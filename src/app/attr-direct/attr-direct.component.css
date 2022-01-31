@@ -1,0 +1,25 @@
+.one {
+    color: green;
+}
+
+.two {
+    background-color: orange;
+    color: seashell;
+}
+
+.three  {
+    letter-spacing: 2px;
+    color: red;
+}
+
+.pcolor {
+  color: pink;
+}
+
+.ocolor {
+    color: orange;
+}
+.tstyle {
+    text-transform: uppercase;
+}
+

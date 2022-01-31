@@ -1,0 +1,37 @@
+<form [formGroup]="userForm" (ngSubmit)="onRegister()">
+    <div>
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username" formControlName="username"/>
+    </div><br>
+    <p *ngIf="(myform?.['username']?.touched)&&(myform?.['username']?.pristine)">Username is required</p>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" formControlName="password" />
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" formControlName="email"/>
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <input type="radio" value="male" id="gender1" name="gender" formControlName="gender"/>Male
+        <input type="radio" value="female" id="gender2" name="gender" formControlName="gender"/>Female
+    </div>
+    <div ngFormGroup="address" formGroupName="address">
+       <div>
+           <label for="state">State</label>
+           <input type="text" name="state" id="state" formControlName="state"/>
+       </div>
+       <div>
+          <label for="city">City</label>
+          <select name="city" formControlName="city">
+              <option [ngValue]="city" *ngFor="let city of cities">{{city}}</option>
+          </select>
+       </div>
+       <div>
+          <label for="zipcode">Zip Code</label>
+          <input type="text" name="zipcode" id="zipcode" formControlName="zipcode"/>
+       </div>
+    </div>
+    <input type="submit" value="Register" [disabled]="!userForm.valid">
+</form>

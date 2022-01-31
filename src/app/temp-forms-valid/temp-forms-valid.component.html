@@ -1,0 +1,43 @@
+<form #registerForm=ngForm (ngSubmit)="onRegister(registerForm)" novalidate>
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="name" #name="ngModel" id="name" required [(ngModel)]="user.name"/>
+    </div><br>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required minlength="6" maxlength="10" pattern="^[a-zA-Z]+$" id="password" [(ngModel)]="user.password"/>
+    </div>
+    <br>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" required email id="email" #email="ngModel" [(ngModel)]="user.email"/>
+    </div>
+    <br>
+    <div>
+        <label for="gender">Gender</label>
+        <input checked type="radio" value="male" id="gender1" name="gender" #gender="ngModel" [(ngModel)]="user.gender"/>Male
+        <input type="radio" value="female" id="gender2" name="gender" #gender="ngModel" [(ngModel)]="user.gender"/>Female
+    </div>
+    <br>
+    <div ngModelGroup="address">
+       <div>
+           <label for="state">State</label>
+           <input type="text" required name="state" id="state" #state="ngModel" [(ngModel)]="user.address.state"/>
+       </div>
+       <br>
+       <div>
+          <label for="city">City</label>
+          <select name="city" #city="ngModel" [(ngModel)]="user.address.city">
+              <option [ngValue]="city" *ngFor="let city of cities">{{city}}</option>
+          </select>
+       </div>
+       <br>
+       <div>
+          <label for="zipcode">Zip Code</label>
+          <input type="text" name="zipcode" id="zipcode" #zipcode="ngModel" [(ngModel)]="user.address.zipcode"/>
+       </div>
+    </div>
+    <input type="submit" value="Register" [disabled]="!registerForm.valid">
+    <!-- <button (click)="onReset()">Reset</button> -->
+    <!-- <button (click)="onResetForm(registerForm)">Reset Form</button> -->
+</form>
